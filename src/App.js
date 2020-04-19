@@ -38,7 +38,7 @@ const App = () => {
             <h2>Game Two</h2>
             <GameTwo time={time} content={phrases} speed={speed} styles={styles}/>
             <h2>Game Three</h2>
-            <GameThree time={time} speed={speed} styles={styles}/>
+            <GameThree time={time} speed={1} styles={styles}/>
         </main>
     );
 };
