@@ -3,11 +3,12 @@ import React, {Component} from 'react';
 class GameOne extends Component {
     constructor(props) {
         super(props);
-        const {content, time, speed, styles} = props;
+        const {content, time, speed, styles, type} = props;
         this.content = content;
-        this.time = time;
-        this.speed = speed;
+        this.time = time || 60;
+        this.speed = speed || 500;
         this.styles = styles;
+        this.type = type || 1;
 
         this.state = {
             text: '',
@@ -46,7 +47,8 @@ class GameOne extends Component {
             const animation = this.state.animation;
             if (animation.position.y >= this.canvasStyles.height - 40) {
                 animation.position.y = 0;
-                this.changePositionX();
+                if (this.type === 1)
+                    this.changePositionX();
             } else {
                 animation.position.y += 20;
             }
@@ -84,7 +86,8 @@ class GameOne extends Component {
                     style={{
                         position: 'absolute',
                         top: this.state.animation.position.y,
-                        left: this.state.animation.position.x === 1 ? 'calc((100% / 3) * 1)' : 'calc((100% / 3) * 2)',
+                        left: this.type === 1 ? this.state.animation.position.x === 1 ? 'calc((100% / 3) * 1)' : 'calc((100% / 3) * 2)' : 'calc(50%)',
+                        transform: this.type === 2 ? 'translateX(-50%)' : null,
                         ...this.styles
                     }}
                 >
