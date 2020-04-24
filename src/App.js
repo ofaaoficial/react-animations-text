@@ -22,7 +22,7 @@ const App = () => {
         "en lectura avanzada desarrollan habilidades intelecturales"
     ];
     const time = 60; // 60 Seconds
-    const speed = 500; // The lower the value, the higher the speed.
+    const speed = 150; // The lower the value, the higher the speed.
     const styles = {
         fontFamily: 'Arial", serif',
         fontWeight: 'bold',
@@ -32,8 +32,10 @@ const App = () => {
 
     return (
         <main>
-            <h2>Game One</h2>
+            <h2>Game One (words)</h2>
             <GameOne time={time} content={words} speed={speed} styles={styles}/>
+            <h2>Game One (phrases)</h2>
+            <GameOne time={time} content={phrases} speed={speed} styles={styles} type={2}/>
             <hr/>
             <h2>Game Two</h2>
             <GameTwo time={time} content={phrases} speed={speed} styles={styles}/>
