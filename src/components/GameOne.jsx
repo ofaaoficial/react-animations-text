@@ -31,6 +31,7 @@ class GameOne extends Component {
             marginLeft: 'auto',
             marginRight: 'auto',
             width: '80%',
+            overflow: 'hidden',
             marginTop: 20,
             height: 500,
             boxShadow: '0 5px 10px rgba(0, 0, 0, 0.11)',
