@@ -1,0 +1,48 @@
+/* @import url('https://fonts.googleapis.com/css?family=Quicksand&display=swap'); */
+@import url('https://fonts.googleapis.com/css?family=Spartan&display=swap');
+
+* {
+  /* font-family: 'Quicksand', sans-serif; */
+  font-family: 'Spartan', sans-serif;
+}
+
+h1 {
+  font-size: 2rem;
+}
+
+/* Bootstrap classes */
+.text-light {
+  color: white !important;
+}
+
+.text-center {
+  text-align: center;
+}
+
+/* Modificación antd */
+.ant-layout-sider {
+  /* background: #80bf36; */
+}
+
+.ant-layout-header {
+  background: #80bf36;
+  /* background: linear-gradient(90deg, #7a56bd, #d513a0); */
+}
+
+.ant-menu-dark,
+.ant-layout-sider-trigger {
+  /* background: rgba(0, 0, 0, 0); */
+}
+
+.main-logo-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  overflow: hidden;
+  height: 112px;
+  margin: 0 12px 0 12px;
+}
+
+.app-logo {
+  max-height: 35px;
+}
