@@ -1,4 +1,5 @@
 import React, {Component} from 'react';
+import './RelojStyles.css';
 
 class GameOne extends Component {
     constructor(props) {
@@ -19,7 +20,8 @@ class GameOne extends Component {
                 },
                 counter: 0,
                 maxRepeat: content.length
-            }
+            },
+            currentSeconds: 0
         };
 
         this.canvasStyles = {
@@ -67,15 +69,22 @@ class GameOne extends Component {
             }
         }, this.speed);
 
-        let counterSeconds = 0;
-        setInterval(() => {
-            counterSeconds++;
-            if (counterSeconds === this.time) clearInterval(this.writerLoop);
+        this.currentInterval = setInterval(() => {
+            this.setState({
+                currentSeconds: this.state.currentSeconds + 1
+            });
+
+            if (this.state.currentSeconds === this.time) this.clearIntervals();
         }, 1000); // One second.
     }
 
-    componentWillUnmount() {
+    clearIntervals() {
         clearInterval(this.writerLoop);
+        clearInterval(this.currentInterval);
+    }
+
+    componentWillUnmount() {
+        this.clearIntervals();
     }
 
     render() {
@@ -93,6 +102,11 @@ class GameOne extends Component {
                 >
                     {this.state.text}
                 </p>
+                <section className="timer">
+                    <article className="hand">
+                        <span className="timer__seconds">{this.state.currentSeconds}</span>
+                    </article>
+                </section>
             </section>
         )
     }

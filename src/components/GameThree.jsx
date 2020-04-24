@@ -17,7 +17,8 @@ class GameThree extends Component {
                     y: 14
                 },
                 counter: 0,
-            }
+            },
+            currentSeconds: 0
         };
 
         this.canvasStyles = {
@@ -53,15 +54,22 @@ class GameThree extends Component {
             this.setState({animation});
         }, this.speed);
 
-        let counterSeconds = 0;
-        setInterval(() => {
-            counterSeconds++;
-            if (counterSeconds === this.time) clearInterval(this.moveLoop);
+        this.currentInterval = setInterval(() => {
+            this.setState({
+                currentSeconds: this.state.currentSeconds + 1
+            });
+
+            if (this.state.currentSeconds === this.time) this.clearIntervals();
         }, 1000); // One second.
     }
 
+    clearIntervals() {
+        clearInterval(this.writerLoop);
+        clearInterval(this.currentInterval);
+    }
+
     componentWillUnmount() {
-        clearInterval(this.moveLoop);
+        this.clearIntervals();
     }
 
     elementsScreen() {
@@ -119,6 +127,11 @@ class GameThree extends Component {
                     {this.elementsScreen().map((element, index) =>
                         <img key={index} draggable="false" src={elementIMG} alt="element" style={element}/>)}
                 </article>
+                <section className="timer">
+                    <article className="hand">
+                        <span className="timer__seconds">{this.state.currentSeconds}</span>
+                    </article>
+                </section>
             </section>
         )
     }

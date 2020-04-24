@@ -1,0 +1,89 @@
+:root {
+    --background: #b1b1b1;
+    --contrast: #80bf36;
+}
+
+.timer {
+    transform: scale(.6);
+    width: 5em;
+    height: 5em;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: #fff;
+    border: .5em solid var(--background);
+    border-radius: 100%;
+    position: absolute;
+    bottom: -15px;
+    right: -70px;
+}
+
+.timer:before, .timer:after {
+    content: '';
+    display: block;
+    position: absolute;
+}
+
+.timer:before {
+    height: .5em;
+    width: .5em;
+    top: -1.48em;
+    border-radius: 100%;
+    left: 50%;
+    margin-left: -.75em;
+    background: var(--contrast);
+    border: .5em solid var(--background);
+}
+
+.timer:after {
+    width: 1em;
+    height: 1em;
+    background: var(--background);
+    right: 0;
+    top: -.25em;
+    border-radius: 100%;
+}
+
+.hand {
+    background: var(--contrast);
+    height: 1em;
+    width: 1em;
+    position: relative;
+    display: flex;
+    justify-content: center;
+    border-radius: 100%;
+    border: 1.4em solid var(--background);
+}
+
+.hand:before, .hand:after {
+    content: '';
+    display: block;
+    position: absolute;
+}
+
+.hand:before {
+    width: 4px;
+    height: 15px;
+    background: var(--contrast);
+    animation: countdownAnimation 2s linear infinite;
+    transform-origin: 50% 125%;
+    bottom: 4px;
+    transform: translate(-50%, 50%);
+}
+
+@keyframes countdownAnimation {
+    0% {
+        transform: rotate(0deg);
+    }
+    100% {
+        transform: rotate(360deg);
+    }
+}
+
+.timer__seconds {
+    top: -14px;
+    position: absolute;
+    z-index: 1;
+    color: #fff;
+    font-size: 20px;
+}
