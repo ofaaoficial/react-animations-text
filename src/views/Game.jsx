@@ -19,7 +19,7 @@ const games = {
     component: <GameOne />,
     params: {
       time: 60,
-      speed: 150,
+      speed: 250,
       content: [
         'pie',
         'talón',
@@ -36,7 +36,7 @@ const games = {
     component: <GameOne />,
     params: {
       time: 60,
-      speed: 150,
+      speed: 250,
       type: 2,
       content: [
         'mi primo dichoso combatiendo irregularidades',
@@ -50,7 +50,7 @@ const games = {
     component: <GameTwo />,
     params: {
       time: 60,
-      speed: 150,
+      speed: 250,
       content: [
         'mi primo dichoso combatiendo irregularidades',
         'y su mano sedosa acariciaba delicadamente',
