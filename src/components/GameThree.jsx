@@ -64,7 +64,7 @@ class GameThree extends Component {
     }
 
     clearIntervals() {
-        clearInterval(this.writerLoop);
+        clearInterval(this.moveLoop);
         clearInterval(this.currentInterval);
     }
 
